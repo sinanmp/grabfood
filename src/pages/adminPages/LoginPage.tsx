@@ -34,6 +34,7 @@ const LoginPage = () => {
 
     loginPromise.then(res =>{
       const {token} = res.data;
+      console.log(res.data, 'this is token')
       localStorage.setItem('token',token);
       Cookie.set("token", token, { sameSite: true });
       navigate('/admin/dashboard')

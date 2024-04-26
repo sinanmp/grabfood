@@ -10,7 +10,7 @@ import axios from "axios";
 export async function authenticate(username) {
 
     try {
-        return await axios.post('/api/authenticate', {username})
+        return await axios.post('https://ec2-13-232-169-249.ap-south-1.compute.amazonaws.com/api/authenticate', {username})
     } catch (error) {
         return {error:"Username doesn't exist...!"}
     }
@@ -80,6 +80,7 @@ export async function adminVerifyPassword({email, password }) {
         }
         
     } catch (error) {
+        console.log(error , 'this is the error')
         return Promise.reject({error:"Password doesn't Match...! "})
     }
     
